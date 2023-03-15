@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Tue Mar 14 17:14:12 2023
+Quartus Prime Version : 22.1std.0 Build 915 10/25/2022 SC Lite Edition
+Revision Name : Lab4
+Top-level Entity Name : nunchukDriver
+Family : MAX 10
+Total logic elements : 119
+    Total combinational functions : 117
+    Dedicated logic registers : 72
+Total registers : 72
+Total pins : 60
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

@@ -1,0 +1,19 @@
+
+State Machine - |nunchukDriver|state
+Name state.HANDSHAKE1 state.READ2 state.READ state.WRITE state.HANDSHAKE2 state.BEGIN 
+state.BEGIN 0 0 0 0 0 0 
+state.HANDSHAKE2 0 0 0 0 1 1 
+state.WRITE 0 0 0 1 0 1 
+state.READ 0 0 1 0 0 1 
+state.READ2 0 1 0 0 0 1 
+state.HANDSHAKE1 1 0 0 0 0 1 
+
+State Machine - |nunchukDriver|I2C:UUT|state
+Name state.RESET state.STOP state.DATA state.REG_ADDR state.DEV_ADDR state.START state.IDLE 
+state.IDLE 0 0 0 0 0 0 0 
+state.START 0 0 0 0 0 1 1 
+state.DEV_ADDR 0 0 0 0 1 0 1 
+state.REG_ADDR 0 0 0 1 0 0 1 
+state.DATA 0 0 1 0 0 0 1 
+state.STOP 0 1 0 0 0 0 1 
+state.RESET 1 0 0 0 0 0 1 

@@ -1,0 +1,53 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "SCLpin",
+					"strict" : false
+				},
+				{
+					"name" : "addr[0]",
+					"strict" : false
+				},
+				{
+					"name" : "addr[1]",
+					"strict" : false
+				},
+				{
+					"name" : "addr[3]",
+					"strict" : false
+				},
+				{
+					"name" : "addr[4]",
+					"strict" : false
+				},
+				{
+					"name" : "addr[5]",
+					"strict" : false
+				},
+				{
+					"name" : "addr[6]",
+					"strict" : false
+				},
+				{
+					"name" : "addr[7]",
+					"strict" : false
+				},
+				{
+					"name" : "SDApin",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "clock",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
