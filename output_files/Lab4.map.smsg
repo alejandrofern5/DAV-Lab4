@@ -1,3 +1,4 @@
 Info (10281): Verilog HDL Declaration information at nunchukDriver.sv(11): object "WRITE" differs only in case from object "write" in the same scope File: C:/Users/aleja/Downloads/Lab4/nunchukDriver.sv Line: 11
 Info (10281): Verilog HDL Declaration information at nunchukDriver.sv(14): object "DONE" differs only in case from object "done" in the same scope File: C:/Users/aleja/Downloads/Lab4/nunchukDriver.sv Line: 14
+Warning (10268): Verilog HDL information at I2C.sv(85): always construct contains both blocking and non-blocking assignments File: C:/Users/aleja/Downloads/Lab4/I2C.sv Line: 85
 Info (10281): Verilog HDL Declaration information at I2C.sv(9): object "START" differs only in case from object "start" in the same scope File: C:/Users/aleja/Downloads/Lab4/I2C.sv Line: 9

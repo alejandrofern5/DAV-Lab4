@@ -55,7 +55,7 @@ module I2C #(parameter MAX_BYTES = 6) (clk, rst, driverDisable, deviceAddr_d, re
 	reg data_start = 0;		//high if currently sending / receiving data
 	reg notAcked = 0;			//high if peripheral returned NACK
 	
-	assign done = (state == RESET); //set done output HIGH when FSM returns to RESET.
+	initial done = (state == RESET); //set done output HIGH when FSM returns to RESET.
 	
 	
 	// FSM sequential logic
@@ -151,11 +151,8 @@ module I2C #(parameter MAX_BYTES = 6) (clk, rst, driverDisable, deviceAddr_d, re
 							scl <= 1;
 							bit_cnt <= bit_cnt + 1;
 							if (bit_cnt == 8) begin
-								if (sending_byte) begin
-									dataOut[byte_cnt] = byteOut; // this is probably wrong
-								end
-								else
-									dataIn[byte_cnt] = byteOut; // this is probably wrong
+								if (sending_byte)
+									dataOut[byte_cnt] = byteOut; 
 								byte_cnt <= byte_cnt + 1;
 							end	
 						end
@@ -213,6 +210,7 @@ module I2C #(parameter MAX_BYTES = 6) (clk, rst, driverDisable, deviceAddr_d, re
 				done = 0;
 				sending_byte = 0;
 				we = 1;
+				data2send = '{default: '0};
 				if(done_sending) begin
 					next_state = DEV_ADDR;
 				end else begin
@@ -265,8 +263,7 @@ module I2C #(parameter MAX_BYTES = 6) (clk, rst, driverDisable, deviceAddr_d, re
 					end else begin
 						if (numBytes == byte_cnt) begin
 							next_state = STOP;
-						end
-						else begin
+						end else begin
 							next_state = DATA;
 						end
 					end
@@ -279,6 +276,7 @@ module I2C #(parameter MAX_BYTES = 6) (clk, rst, driverDisable, deviceAddr_d, re
 				sending_byte = 0;
 				we = 1;
 				done = 0;
+				data2send = '{default: '0};
 				next_state = done_sending ? IDLE : STOP;
 			end
 			IDLE: begin
@@ -286,6 +284,7 @@ module I2C #(parameter MAX_BYTES = 6) (clk, rst, driverDisable, deviceAddr_d, re
 				done = 0;
 				we = 0;
 				sending_byte = 0;
+				data2send = '{default: '0};
 				if(delayCounter > 7) begin
 					next_state = start ? START : IDLE;
 				end else begin
